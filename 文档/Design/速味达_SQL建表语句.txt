@@ -1,0 +1,88 @@
+CREATE DATABASE IF NOT EXISTS restaurant;
+CREATE TABLE IF NOT EXISTS employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    account VARCHAR(255),
+    phone_number VARCHAR(255),
+    gender VARCHAR(1), -- 0 for male, 1 for female
+    permission INT,
+    last_login_time DATETIME,
+    registration_time DATETIME,
+    password VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    account VARCHAR(255),
+    password VARCHAR(255),
+    phone_number VARCHAR(255),
+    jwt_token VARCHAR(255) -- New field to store JWT token
+);
+
+CREATE TABLE IF NOT EXISTS dishes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    price VARCHAR(255), -- Assuming price can be in string format for cases like "$10.99"
+    description VARCHAR(255),
+    status VARCHAR(1), -- 0 for not available, 1 for available
+    sum INT
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    total_price VARCHAR(255),
+    status INT, -- 0 for not accepted, 1 for accepted, 2 for in delivery, 3 for completed
+    address VARCHAR(255),
+    order_date DATE,
+    ordered_dishes JSON -- New field to store ordered dishes array
+);
+
+INSERT INTO dishes (name, price, description,status, sum)
+VALUES
+    ('宫保鸡丁', '￥28.99', '传统川菜，鸡丁炒花生米、葱姜末，微辣香味浓郁', '1', '45'),
+    ('鱼香肉丝', '￥25.99', '经典川菜，猪肉丝炒木耳和胡萝卜，味道鲜美可口', '1', '60'),
+    ('北京炸酱面', '￥18.99', '地道的京味小吃，面条配以特制酱料和蔬菜', '1', '55'),
+    ('松子桂鱼', '￥32.99', '湘菜经典菜品，桂鱼肉质鲜嫩，搭配松子香脆可口', '1', '40'),
+    ('红烧肉', '￥22.99', '家常菜之一，猪肉炖至软糯，色泽诱人，味道香甜', '1', '75'),
+    ('麻婆豆腐', '￥20.99', '川菜经典之一，豆腐与肉末一起烧制，香辣鲜美', '1', '65'),
+    ('干煸四季豆', '￥19.99', '经典川菜，四季豆炒至香脆，加入辣椒和花椒', '1', '50'),
+    ('蒜蓉西兰花', '￥16.99', '清淡爽口的家常菜，西兰花与蒜蓉炒制', '1', '70'),
+    ('红烧茄子', '￥21.99', '经典川菜，茄子炖至软糯，入味鲜美', '1', '60'),
+    ('夫妻肺片', '￥27.99', '川菜经典之一，牛肺片配以特制麻辣酱汁，爽口下饭', '1', '45'),
+    ('水煮鱼', '￥32.99', '川菜经典，鲜嫩鱼片煮至烂糊，搭配麻辣汤底', '1', '55'),
+    ('口水鸡', '￥26.99', '川菜经典小吃，鸡肉片用特制辣酱拌制，香辣开胃', '1', '65'),
+    ('担担面', '￥15.99', '经典川菜，面条配以香辣肉酱和花生碎，美味爽口', '1', '80'),
+    ('葱油拌面', '￥12.99', '家常面食，面条拌以葱花和香油，清香可口', '1', '90'),
+    ('豆芽炒肉', '￥17.99', '家常川菜，豆芽与猪肉丝炒制，鲜嫩爽口', '1', '70'),
+    ('香菇青菜炒鸡片', '￥24.99', '清淡爽口菜品，香菇和青菜炒至熟软，配以鸡片', '1', '50'),
+    ('酸菜鱼', '￥29.99', '川菜经典，鱼片煮至烂糊，加入酸菜和辣椒', '1', '40'),
+    ('蒜蓉蒸扇贝', '￥38.99', '粤菜经典，鲜嫩扇贝蒸制，蒜蓉提香', '1', '30'),
+    ('红烧排骨', '￥23.99', '家常菜之一，排骨炖至软烂，味道香甜', '1', '60'),
+    ('地三鲜', '￥19.99', '东北菜经典，茄子、土豆、青椒炒制，色香味俱佳', '1', '75');
+
+
+INSERT INTO employees (name, account, phone_number, gender, permission, last_login_time, registration_time,password)
+VALUES
+    ('admin', 'admin', '18645678990', '0', '0', '2024-03-01 08:00:00', '2023-12-15 10:30:00','hukthiuofreahfiuahfeiu'),
+    ('李四', 'li_si', '18851100709', '1', '1', '2024-03-02 09:15:00', '2023-11-20 14:45:00','hukthiuofreahfiuahfeiu');
+
+INSERT INTO users (account, password, phone_number)
+VALUES
+    ('王小明', 'wang123', '19878874898'),
+    ('张美丽', 'zhang456', '15987984863'),
+    ('李华', 'li789', '15845989879');
+
+INSERT INTO orders (user_id, total_price, status, address, order_date, ordered_dishes)
+VALUES
+    ('1', '￥88.88', '1', '江苏省南京市玄武区中山路123号', '2024-03-05', '[1, 2]'),
+    ('2', '￥67.50', '1', '江苏省南京市鼓楼区北京西路456号', '2024-03-06', '[3, 4]'),
+    ('3', '￥42.75', '1', '江苏省南京市秦淮区夫子庙789号', '2024-03-07', '[5, 6]'),
+    ('1', '￥50.00', '1', '江苏省南京市建邺区河西路321号', '2024-03-08', '[7, 8]'),
+    ('2', '￥98.75', '1', '江苏省南京市浦口区长江路654号', '2024-03-09', '[9, 10]'),
+    ('3', '￥35.25', '1', '江苏省南京市栖霞区仙林大道987号', '2024-03-10', '[11, 12]'),
+    ('1', '￥75.50', '1', '江苏省南京市雨花台区软件大道135号', '2024-03-11', '[13, 14]'),
+    ('2', '￥20.25', '1', '江苏省南京市江宁区禄口街道246号', '2024-03-12', '[15, 16]'),
+    ('3', '￥63.80', '1', '江苏省南京市六合区雄州街道579号', '2024-03-13', '[17, 18]'),
+    ('1', '￥55.30', '1', '江苏省南京市溧水区石湫街道753号', '2024-03-14', '[19, 20, 21]');
+ALTER TABLE dishes ADD image VARCHAR(255);

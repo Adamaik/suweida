@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e26f15a3-284e-457a-9de0-f2310d52972c" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-common/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-common/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-common/src/main/java/constant/business/BusinessLoginConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-common/src/main/java/result/PageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-common/src/main/java/result/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-common/src/main/java/utils/JwtUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-common/src/main/java/utils/OBSUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-pojo/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-pojo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-pojo/src/main/java/dto/business/BusinessDishPageDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-pojo/src/main/java/dto/business/BusinessLoginDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-pojo/src/main/java/entity/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-pojo/src/main/java/entity/Dish.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-pojo/src/main/java/entity/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-pojo/src/main/java/entity/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-pojo/src/main/java/vo/business/BusinessLoginVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/FastReachServeApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/controller/business/BusinessDishController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/controller/business/BusinessEmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/controller/business/BusinessLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/controller/business/BusinessOrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/controller/business/BusinessStatisticsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/controller/customer/CustomerHistoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/controller/customer/CustomerLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/controller/customer/CustomerModifyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/controller/customer/CustomerOrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/interceptor/LoginCheckInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/mapper/business/BusinessDishMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/mapper/business/BusinessEmployeeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/mapper/business/BusinessLoginMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/mapper/business/BusinessOrderMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/mapper/business/BusinessStatisticsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/mapper/customer/CustomerHistoryMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/mapper/customer/CustomerLoginMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/mapper/customer/CustomerModifyMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/mapper/customer/CustomerOrderMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/business/BusinessDishService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/business/BusinessEmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/business/BusinessLoginService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/business/BusinessOrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/business/BusinessStatisticsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/business/impl/BusinessDishServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/business/impl/BusinessEmployeeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/business/impl/BusinessLoginServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/business/impl/BusinessOrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/business/impl/BusinessStatisticsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/customer/CustomerHistoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/customer/CustomerLoginService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/customer/CustomerModifyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/customer/CustomerOrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/customer/impl/CustomerHistoryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/customer/impl/CustomerLoginServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/customer/impl/CustomerModifyServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/java/com/example/fastreachserve/service/customer/impl/CustomerOrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/main/resources/com/example/fastreachserve/mapper/business/BusinessDishMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/fast-reach-serve/src/test/java/com/example/fastreachserve/FastReachServeApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fast-reach/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/fast-reach" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2euLbv2UcOVOYrFidI5QRnhuIty" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="e26f15a3-284e-457a-9de0-f2310d52972c" name="更改" comment="" />
+      <created>1712749593262</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712749593262</updated>
+      <workItem from="1712749594906" duration="31000" />
+      <workItem from="1713169980889" duration="5000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
