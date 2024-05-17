@@ -4,14 +4,14 @@
 <mapper namespace="com.example.fastreachserve.mapper.business.BusinessDishMapper">
     <select id="page" resultType="entity.Dish">
         select * from dishes
-<!--        <where>-->
-<!--            <if test="name!=null">-->
-<!--                and name like concat('%',#{name},'%')-->
-<!--            </if>-->
-<!--            <if test="status!=null">-->
-<!--                and status=#{status}-->
-<!--            </if>-->
-<!--        </where>-->
+        <where>
+            <if test="name!=null">
+                and name like concat('%',#{name},'%')
+            </if>
+            <if test="status!=2">
+                and status=#{status}
+            </if>
+        </where>
     </select>
 
 </mapper>

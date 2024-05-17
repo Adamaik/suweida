@@ -1,6 +1,14 @@
 package com.example.fastreachserve.service.business;
 
-import org.apache.ibatis.annotations.Mapper;
+import result.DishNumResult;
+import result.TurnoverResult;
+import result.UserResult;
 
 public interface BusinessStatisticsService {
+    TurnoverResult getTurnover();
+
+    UserResult getUser();
+
+    DishNumResult getDishNum();
 }
+

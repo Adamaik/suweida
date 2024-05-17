@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class BusinessLoginVO {
-    private int employeeId;
+    private int id;
     private String token;
     private String name;
     private int permission;

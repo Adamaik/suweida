@@ -44,11 +44,15 @@ TODO 写一个注册的按钮，跳转到这里：src\views\customer\registerfun
           }).then(res => {
             if (res.data.code == 1) {
               localStorage.setItem('id',res.data.data.id)
-              localStorage.setItem('phone',res.data.data.phone)
+              localStorage.setItem('account',res.data.data.account)
+              localStorage.setItem('password',res.data.data.password)
+              localStorage.setItem('phoneNumber',res.data.data.phoneNumber)
               localStorage.setItem('token', res.data.data.token)
+              localStorage.setItem('money',res.data.data.money)
+              localStorage.setItem('name',res.data.data.name)
               this.$notify({
                 title: '登录提醒',
-                message: ('登录成功'),
+                message: ('登录成功,欢迎您'+localStorage.getItem('name')),
               });
               this.$router.push('/customer/manage')
             }

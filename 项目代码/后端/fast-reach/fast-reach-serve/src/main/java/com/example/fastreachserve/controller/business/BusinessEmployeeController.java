@@ -1,10 +1,14 @@
 package com.example.fastreachserve.controller.business;
 
 import com.example.fastreachserve.service.business.BusinessEmployeeService;
+import dto.business.BusinessDishAddDTO;
 import dto.business.BusinessEmployeePageDTO;
+import dto.business.BussinessEmployeeAddDTO;
+import dto.business.BussinessEmployeeEditDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import result.DishAddStruct;
 import result.PageResult;
 import result.Result;
 import utils.OBSUtils;
@@ -30,6 +34,24 @@ public class BusinessEmployeeController {
         PageResult pageResult = businessEmployeeService.page(businessEmployeePageDTO);
         log.info("TEST:",pageResult);
         return Result.sucess(pageResult);
+    }
+    //添加的功能-1
+    @PostMapping("/add")
+    public Result add(@RequestBody BussinessEmployeeAddDTO bussinessEmployeeAddDTO){
+        if(businessEmployeeService.add(bussinessEmployeeAddDTO)){
+            return Result.sucess();
+        }else{
+            return Result.error();
+        }
+    }
+    //添加的功能-2
+    @PostMapping("/edit")
+    public Result edit(@RequestBody BussinessEmployeeEditDTO bussinessEmployeeEditDTO){
+        if(businessEmployeeService.edit(bussinessEmployeeEditDTO)){
+            return Result.sucess();
+        }else{
+            return Result.error();
+        }
     }
  //   @DeleteMapping("/delete")
 //    public Result delete(@PathVariable List<Integer>ids){

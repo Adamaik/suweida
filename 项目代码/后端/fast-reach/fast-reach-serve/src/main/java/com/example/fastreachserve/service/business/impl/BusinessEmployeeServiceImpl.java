@@ -6,6 +6,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import dto.business.BusinessDishPageDTO;
 import dto.business.BusinessEmployeePageDTO;
+import dto.business.BussinessEmployeeAddDTO;
+import dto.business.BussinessEmployeeEditDTO;
 import entity.Dish;
 import entity.Employee;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +32,28 @@ public class BusinessEmployeeServiceImpl implements BusinessEmployeeService {
         PageInfo<Employee> pageInfo = new PageInfo<Employee>(page);
         log.info("fef{}",pageInfo.getSize());
         return new PageResult(pageInfo.getTotal(), pageInfo.getList());
+    }
 
+    @Override
+    public boolean add(BussinessEmployeeAddDTO bussinessEmployeeAddDTO) {
+        try{
+            businessEmployeeMapper.add(bussinessEmployeeAddDTO);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+
+    @Override
+    public boolean edit(BussinessEmployeeEditDTO bussinessEmployeeEditDTO) {
+        try{
+            businessEmployeeMapper.edit(bussinessEmployeeEditDTO);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
     }
 //    @Override
 //    public void delete()

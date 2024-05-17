@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 public class Employee {
-    private int employeeId;
+    private int id;
     private String name;
     private String account;//账号
     private String password;//密码

@@ -5,8 +5,8 @@ TODO 写一个修改用户信息的按钮,跳转到修改信息界面，跳转�
       <el-header>Header</el-header>
       <el-container>
         <el-aside width="200px">
-          <el-menu default-active="2" class="el-menu-vertical-demo"
-            background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" :router=flag>
+          <el-menu default-active="2" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff"
+            active-text-color="#ffd04b" :router=flag>
             <el-menu-item index="/customer/manage/order">
               <i class="el-icon-menu"></i>
               <span slot="title">点餐</span>
@@ -18,7 +18,7 @@ TODO 写一个修改用户信息的按钮,跳转到修改信息界面，跳转�
           </el-menu>
         </el-aside>
         <el-main>
-          <router-view></router-view>   
+          <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -37,7 +37,7 @@ TODO 写一个修改用户信息的按钮,跳转到修改信息界面，跳转�
         this.activeIndex2 = this.$route.path
       }
     },
-    mounted(){
+    mounted () {
 
     }
   }

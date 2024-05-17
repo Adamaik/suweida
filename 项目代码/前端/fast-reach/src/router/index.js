@@ -31,6 +31,11 @@ const routes = [
         component:()=>import('../components/business/BusinessOrderManage.vue')
       },
       {
+        path:'/business/manage/orderdetail',
+        name:'订单详情组件',
+        component:()=>import('../components/business/BusinessOrderDetail.vue')
+      },
+      {
         path:'/business/manage/employeemanage',
         name:'员工管理组件',
         component:()=>import('../components/business/BusinessEmployeeManage.vue')

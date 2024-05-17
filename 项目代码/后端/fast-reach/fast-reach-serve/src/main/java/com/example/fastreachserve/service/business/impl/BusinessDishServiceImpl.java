@@ -3,7 +3,10 @@ package com.example.fastreachserve.service.business.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import dto.business.BusinessDishAddDTO;
+import dto.business.BusinessDishEditDTO;
 import lombok.extern.slf4j.Slf4j;
+import result.DishAddStruct;
 import result.PageResult;
 import com.example.fastreachserve.mapper.business.BusinessDishMapper;
 import com.example.fastreachserve.service.business.BusinessDishService;
@@ -35,5 +38,43 @@ public class BusinessDishServiceImpl implements BusinessDishService {
         log.info("fef{}",pageInfo.getSize());
         return new PageResult(pageInfo.getTotal(), pageInfo.getList());
 
+    }
+
+    @Override
+    public boolean edit(BusinessDishEditDTO businessDishEditDTO) {
+        try{
+            businessDishMapper.edit(businessDishEditDTO);
+        }
+        catch(Exception e){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean delete(int id) {
+        try{
+            businessDishMapper.delete(id);
+        }
+        catch(Exception e){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public DishAddStruct add(BusinessDishAddDTO businessDishAddDTO) {
+        DishAddStruct dishAddStruct =new DishAddStruct();
+        try{
+            businessDishMapper.add(businessDishAddDTO);
+            log.info("新添加菜品的id是{}",businessDishAddDTO.getId());
+            dishAddStruct.setDishId(businessDishAddDTO.getId());
+            dishAddStruct.setSuccess(true);
+        }
+        catch(Exception e){
+            dishAddStruct.setDishId(-1);
+            dishAddStruct.setSuccess(false);
+        }
+        return dishAddStruct;
     }
 }

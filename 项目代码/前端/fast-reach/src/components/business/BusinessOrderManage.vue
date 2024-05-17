@@ -46,13 +46,22 @@ TODO 请求的时候data里面的数据得根据前端设计填充
         <el-form-item label="顾客ID" :label-width="formLabelWidth"
           ><el-input v-model="form.userId" autocomplete="off" disabled></el-input
         ></el-form-item>
-        <el-form-item label="价钱" :label-width="formLabelWidth"
-          ><el-input v-model="form.totalPrice" autocomplete="off"></el-input
-        ></el-form-item>
+        <el-form-item label="状态" :label-width="formLabelWidth">
+          <el-select v-model="form.status" placeholder="请选择状态">
+            <el-option label="未接单" value="0"></el-option>
+            <el-option label="已结单" value="1"></el-option>
+            <el-option label="派送中" value="2"></el-option>
+            <el-option label="已完成" value="3"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="地址" :label-width="formLabelWidth">
+          <el-input v-model="form.address" autocomplete="off" disabled></el-input>
+        </el-form-item>
+
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+        <el-button @click="editflag = false">取 消</el-button>
+        <el-button type="primary" @click="submitForm()">确 定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -73,7 +82,21 @@ export default {
         id: "",
         userId: "",
         totalPrice: "",
+        status: "",
+        address: "",
       },
+      // 搜索条件
+      searchMap: {
+        userId: "",
+        status: "",
+      },
+      // 订单状态
+      statusList: [
+        { value: "0", label: "未接单" },
+        { value: "1", label: "已结单" },
+        { value: "2", label: "派送中" },
+        { value: "3", label: "已完成" },
+      ],
       dialogFormVisible: false,
       formLabelWidth: "120px",
     };
@@ -87,6 +110,8 @@ export default {
         id: row.id,
         userId: row.userId,
         totalPrice: row.totalPrice,
+        status: this.statusList[row.status].label,
+        address: row.address,
       };
     },
     // 提交表单
@@ -98,10 +123,15 @@ export default {
         },
         method: "put",
         data: {
-          id: this.form.id,
+          orderId: this.form.id,
           status: this.form.status,
-          totalPrice: this.form.totalPrice,
         },
+        // params: {
+        //   orderId: this.form.id,
+        //   status: this.form.status,
+        //   totalPrice: this.form.totalPrice,
+        //   address: this.form.address,
+        //
       })
         .then((res) => {
           console.log(res.data.data);
@@ -120,15 +150,20 @@ export default {
           token: localStorage.getItem("token"),
         },
         method: "delete",
-        data: {
-          id: id,
+        params: {
+          orderId: id,
         },
+        // data: {
+        //   orderId: id,
+        // },
       })
         .then((res) => {
+          console.log(id);
           console.log(res.data.data);
           this.loadData(); // 刷新订单数据
         })
         .catch((err) => {
+          console.log(id);
           console.log(err.data.msg);
         });
     },
@@ -136,7 +171,7 @@ export default {
     viewOrder(id) {
       // 在这里添加响应按钮和配置路由，跳转到订单详情页
       this.$router.push({
-        path: "/order/detail",
+        path: "/business/manage/orderdetail",
         query: {
           id: id,
         },
