@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BussinessEmployeeEditDTO {
-    private int id;
+    private int employeeId;
     private String name;
     private String account;//账号
     private String password;//密码

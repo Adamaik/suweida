@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 
 public class BusinessOrderDTO {
-    private int id;
+    private int orderId;
     private int userId;
     private String totalPrice;
     private int status;

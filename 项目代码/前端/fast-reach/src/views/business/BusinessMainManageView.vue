@@ -2,7 +2,7 @@ TODO 负责这一部分的组员，要在顶栏展示欢迎xxx(员工姓名),然
 <template>
   <div id="manage">
     <el-container>
-      <el-header>Header</el-header>
+      <el-header class="custom-header">速味达外卖管理系统</el-header>
       <el-container>
         <el-aside width="200px">
           <el-menu default-active="2" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff"
@@ -22,6 +22,10 @@ TODO 负责这一部分的组员，要在顶栏展示欢迎xxx(员工姓名),然
             <el-menu-item index="/business/manage/employeemanage" v-if=true>
               <i class="el-icon-setting"></i>
               <span slot="title">员工管理</span>
+            </el-menu-item>
+            <el-menu-item index="/business/manage/userrecharge" v-if=true>
+              <i class="el-icon-setting"></i>
+              <span slot="title">用户充值</span>
             </el-menu-item>
           </el-menu>
         </el-aside>
@@ -86,5 +90,36 @@ TODO 负责这一部分的组员，要在顶栏展示欢迎xxx(员工姓名),然
 
   .el-menu {
     height: 100%;
+  }
+
+  /* 增加上下间距，这里使用 padding，你也可以使用 margin */
+  .custom-header {
+    padding: 40px 0;
+    /* 上下各20px，左右0px */
+    /* 你也可以添加水平间距，例如 padding: 20px 15px; */
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    /* 从左到右的渐变 */
+    color: #fff;
+    /* 确保文本颜色与背景色形成对比 */
+    /* background-image: url('../../../src/assets/headbackground.jpg'); */
+    /* 替换为你的图片URL */
+    background-repeat: no-repeat;
+    /* 不重复图片 */
+    background-size: cover;
+    /* 图片覆盖整个容器 */
+
+  }
+
+  /* 让字体看起来更美观，可以调整字体大小、字体粗细、字体颜色和行高等 */
+  .custom-header {
+    font-size: 30px;
+    /* 字体大小 */
+    font-weight: bold;
+    /* 字体加粗 */
+    color: #530e0e;
+    /* 字体颜色，可以根据你的品牌色或主题色来设置 */
+    line-height: 0.2;
+    /* 行高，可以根据需要调整 */
+    /* 还可以添加其他字体样式，如 font-family 来指定字体 */
   }
 </style>

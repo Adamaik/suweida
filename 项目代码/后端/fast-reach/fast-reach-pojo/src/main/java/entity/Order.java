@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class Order {
-    private int id;
+    private int orderId;
     private int userId; // 修改字段名为 userId
     private String totalPrice; // 修改字段名为 totalPrice
     private int status;

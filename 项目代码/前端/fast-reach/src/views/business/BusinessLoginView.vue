@@ -27,8 +27,8 @@
           account: '',
           password: ''
         },
-          msg: ''
-        }
+        msg: ''
+      }
     },
     methods: {
       login () {
@@ -41,10 +41,11 @@
           }
         }).then(res => {
           if (res.data.code == 1) {
-            localStorage.setItem('id',res.data.data.id)
+            localStorage.setItem('id', res.data.data.id)
             localStorage.setItem('token', res.data.data.token)
-            localStorage.setItem('name',res.data.data.name)
-            localStorage.setItem('permission',res.data.data.permission)
+            localStorage.setItem('name', res.data.data.name)
+            localStorage.setItem('permission', res.data.data.permission)
+            localStorage.setItem("pd", this.form.password)
             this.$notify({
               title: '登录提醒',
               message: ('登录成功'),

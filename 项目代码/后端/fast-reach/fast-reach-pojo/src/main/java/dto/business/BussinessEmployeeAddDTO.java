@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BussinessEmployeeAddDTO {
-    private int id;
+    private int employeeId;
     private String name;
     private String account;//账号
     private String password;//密码

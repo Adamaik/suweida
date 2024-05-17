@@ -59,7 +59,7 @@ public class BusinessOrderServiceImpl implements BusinessOrderService {
             return null;
         }
         BusinessOrderVO orderVO = new BusinessOrderVO();
-        orderVO.setId(orderDTO.getId());
+        orderVO.setId(orderDTO.getOrderId());
         orderVO.setUserId(orderDTO.getUserId());
         orderVO.setTotalPrice(orderDTO.getTotalPrice());
         orderVO.setStatus(orderDTO.getStatus());

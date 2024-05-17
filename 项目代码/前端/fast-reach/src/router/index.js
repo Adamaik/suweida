@@ -21,6 +21,11 @@ const routes = [
         component:()=>import('../components/business/BusinessDataStatistics.vue')
       },
       {
+        path:'/business/manage/userrecharge',
+        name:'数据统计组件',
+        component:()=>import('../components/business/BusinessUserRecharge.vue')
+      },
+      {
         path:'/business/manage/dishmanage',
         name:'菜品管理组件',
         component:()=>import('../components/business/BusinessDishManage.vue')

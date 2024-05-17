@@ -35,7 +35,6 @@ public class BusinessDishServiceImpl implements BusinessDishService {
         PageHelper.startPage(1,10);
         List<Dish> page = businessDishMapper.page(businessDishPageDTO);
         PageInfo<Dish> pageInfo = new PageInfo<Dish>(page);
-        log.info("fef{}",pageInfo.getSize());
         return new PageResult(pageInfo.getTotal(), pageInfo.getList());
 
     }

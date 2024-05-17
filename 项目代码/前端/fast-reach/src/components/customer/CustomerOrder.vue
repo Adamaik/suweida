@@ -24,56 +24,40 @@
       <span id="right"><el-button type="danger" @click="submitDish">提交订单</el-button>
         <el-dialog title="确认订单信息" :visible.sync="dialogFormVisible">
 
-          <el-table  
-          :data="filteredTableData"  
-          style="width: 100%">  
-          <el-table-column  
-            prop="name"  
-            label="菜品名称"  
-            width="180">  
-          </el-table-column>  
-          <el-table-column  
-            prop="price"  
-            label="菜品单价"  
-            width="180">  
-          </el-table-column>  
-          <el-table-column  
-            prop="num"  
-            label="菜品数量">  
-          </el-table-column>  
-          <el-table-column  
-            label="菜品价格"  
-            width="180">  
-            <template slot-scope="scope">  
-            ￥{{ scope.row.price.slice(1) * scope.row.num }} 
-            </template>  
-          </el-table-column>  
-        </el-table>
-<br><br>
+          <el-table :data="filteredTableData" style="width: 100%">
+            <el-table-column prop="name" label="菜品名称" width="180">
+            </el-table-column>
+            <el-table-column prop="price" label="菜品单价" width="180">
+            </el-table-column>
+            <el-table-column prop="num" label="菜品数量">
+            </el-table-column>
+            <el-table-column label="菜品价格" width="180">
+              <template slot-scope="scope">
+                ￥{{ scope.row.price.slice(1) * scope.row.num }}
+              </template>
+            </el-table-column>
+          </el-table>
+          <br><br>
 
-<div id="mid">
-  &nbsp;&nbsp;总价格：￥{{this.cost}}
-  &nbsp;&nbsp;
-剩余金额：￥{{this.money}}
-</div>
-   
+          <div id="mid">
+            &nbsp;&nbsp;总价格：￥{{this.cost}}
+            &nbsp;&nbsp;
+            剩余金额：￥{{this.money}}
+          </div>
+
           <div slot="footer" class="dialog-footer">
             <div id="left">
-            <el-select v-model="valuex" placeholder="请选择支付方式">
-              <el-option
-                v-for="item in optionsx"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
-            
-          </div>
-        
-            <br><br> 
+              <el-select v-model="valuex" placeholder="请选择支付方式">
+                <el-option v-for="item in optionsx" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
+
+            </div>
+
+            <br><br>
             <el-input v-model="address" placeholder="请输入地址"></el-input>
-         
-      
+
+
 
             <el-button @click="dialogFormVisible = false">取 消</el-button>
             <el-button type="primary" @click="Paybutton">确 定</el-button>
@@ -129,9 +113,9 @@
     data () {
       return {
         cost: 0,
-        id:'',
-        money:localStorage.getItem('money'),
-        address:'',
+        id: '',
+        money: localStorage.getItem('money'),
+        address: '',
         optionsx: [{
           value: '0',
           label: '虚拟货币支付'
@@ -160,17 +144,18 @@
         //////
         total: null,
         records: [],
+        dishList: [],
         orders: [],
         currentPage: 1, // 当前页码  
         pageSize: 10, // 每页显示的条目数  
         dialogFormVisible: false,
       };
     },
-    computed: {  
-    filteredTableData() {  
-      return this.records.filter(row => row.num !=0);  
-    }  
-  }  ,
+    computed: {
+      filteredTableData () {
+        return this.records.filter(row => row.num != 0);
+      }
+    },
     methods: {
       accAdd (arg1, arg2) {
         var r1, r2, m, c;
@@ -243,54 +228,74 @@
           console.log(err.data.msg)
         })
       },
-      submitDish(){
-       this.dialogFormVisible=true
+      submitDish () {
+        this.dialogFormVisible = true
       },
 
-      
-      Paybutton(){
+
+      Paybutton () {
         console.log(this.valuex)
-        if(this.valuex==null){
+        if (this.valuex == null) {
           console.log("未选择支付方式")
           alert("请选择支付方式")
         }
-        if(this.valuex==0){
+        if (this.valuex == 0) {
           console.log("选择虚拟货币支付")
-          if(this.money<this.cost){
-      alert("余额不足，请充值或选择其他支付方式")
-     }else{
-      console.log("剩余金额"+this.money)
-      this.money=this.accAdd(this.money,-this.cost)
-      axios({//菜品分页查询
-          url: '/api/customer/xsy1',
-          method: 'get',
-          headers: {
-            "token": localStorage.getItem('token')
-          },
-          params: {
-            name: this.money,
-            id:this.id
+
+
+
+
+          if (this.money < this.cost) {
+            alert("余额不足，请充值或选择其他支付方式")
+          } else {
+            console.log("剩余金额" + this.money)
+            this.money = this.accAdd(this.money, -this.cost)
+
+            for (var i = 0; i < this.records.length; ++i) {
+              if (this.records[i].num != 0) {
+                this.dishList.push({
+                  id: this.records[i].id,
+                  num: this.records[i].num
+                })
+
+              }
+            }
+            console.log(this.dishList)
+            axios({
+              url: '/api/customer/order/submit',
+              method: 'post',
+              headers: {
+                "token": localStorage.getItem('token')
+              },
+              data: {
+                money: this.money,
+                totalPrice: this.cost,
+                id: this.id,
+                address: this.address,
+                dishList: this.dishList
+              }
+            }).then(res => {
+              console.log(res.data)
+              if (res.data.msg == "NOT_LOGIN") {
+                this.$router.push('/customer/login')
+                return;
+              }
+              alert("付款成功")
+            }).catch(err => {
+              console.log(err.data.msg)
+            })
+
+
+
+
 
           }
-        }).then(res => {
-          console.log(res.data)
-          if (res.data.msg == "NOT_LOGIN") {
-            this.$router.push('/business/login')
-            return;
-          }
-          alert("付款成功")
-        }).catch(err => {
-          console.log(err.data.msg)
-        })
-
-      
-     }
         }
-        if(this.valuex==1){
+        if (this.valuex == 1) {
           console.log("选择微信支付")
 
         }
-        if(this.valuex==2){
+        if (this.valuex == 2) {
           console.log("选择支付宝支付")
 
         }
@@ -327,8 +332,8 @@
       }
     },
     mounted () {
-      this.money=localStorage.getItem('money')
-      this.id=localStorage.getItem('id')
+      this.money = localStorage.getItem('money')
+      this.id = localStorage.getItem('id')
       this.changePage()
     },
 
@@ -366,8 +371,7 @@
     float: left;
   }
 
-  #mid {  
-    font-size: 18px;  
+  #mid {
+    font-size: 18px;
   }
-
 </style>

@@ -40,6 +40,7 @@ public class CustomerLoginServiceImpl implements CustomerLoginService {
         String jwt= JwtUtils.generateJwt(claims, CustomerLoginConstant.DEADLINE);
         log.info("JWT令牌:"+jwt);
         customerLoginVO.setToken(jwt);
+        customerLoginVO.setId(customer.getUserId());
         return customerLoginVO;
     }
 }
