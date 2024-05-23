@@ -33,13 +33,19 @@
       <el-main style="padding: 20px">
         <el-card shadow="hover">
           <template #header>菜单详情</template>
-          <img
-            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-            style="width: 100%; margin-bottom: 20px"
-          />
-          <el-divider>Order Dishes</el-divider>
-          <div v-if="order && order.orderedDishes">
-            <p v-for="dish in order.orderedDishes.split(',')" :key="dish">{{ dish }}</p>
+          <div class="block text-center">
+            <el-carousel motion-blur>
+              <el-carousel-item v-for="dish in dishes" :key="dish.id">
+                <img :src="dish.image" alt="菜品图片" style="height: 100%;width:100%"/>
+              </el-carousel-item>
+            </el-carousel>
+          </div>
+
+          <el-divider>菜品详细</el-divider>
+          <div v-if="dishes.length > 0">
+            <p v-for="dish in dishes" :key="dish.id">
+              {{ dish.id }} . {{ dish.name }}:{{ dish.description }}
+            </p>
           </div>
           <div v-else>
             <el-skeleton :loading="true" rows="4"></el-skeleton>
@@ -58,6 +64,7 @@ export default {
   data() {
     return {
       order: null,
+      dishes: [],
       orderId: null, // Initialize as null
       statusList: [
         { value: "0", label: "未接单" },
@@ -91,11 +98,37 @@ export default {
           })
           .then((response) => {
             this.order = response.data.data;
+            console.log("Order details:", this.order);
+            if (this.order && this.order.orderedDishes) {
+              this.fetchDishes(this.order.orderedDishes);
+            }
           })
           .catch((error) => {
             console.error("Error fetching order details:", error);
           });
       }
+    },
+    fetchDishes(orderedDishes) {
+      const dishIds = JSON.parse(orderedDishes);
+      const token = localStorage.getItem("token");
+      const dishRequests = dishIds.map((id) =>
+        axios.get(`/api/business/dish/order/dish`, {
+          headers: {
+            token: token,
+          },
+          params: {
+            id: id,
+          },
+        })
+      );
+      Promise.all(dishRequests)
+        .then((responses) => {
+          this.dishes = responses.map((response) => response.data.data);
+          console.log("Dishes:", this.dishes);
+        })
+        .catch((error) => {
+          console.error("Error fetching dishes:", error);
+        });
     },
     getStatusLabel(status) {
       const statusObj = this.statusList.find((item) => item.value === status.toString());
@@ -108,5 +141,19 @@ export default {
 <style scoped>
 .common-layout {
   font-family: "Arial", sans-serif;
+}
+
+.demonstration {
+  color: var(--el-text-color-secondary);
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+  height: auto;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+  height: auto;
 }
 </style>

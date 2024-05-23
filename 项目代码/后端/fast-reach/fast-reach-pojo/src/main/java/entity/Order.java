@@ -1,5 +1,6 @@
 package entity;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import jdk.jfr.Unsigned;
 import lombok.Data;
 

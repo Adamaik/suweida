@@ -19,9 +19,14 @@ public interface BusinessDishMapper {
 
     @Update("UPDATE dishes SET price = #{price},name=#{name},description=#{description},status=#{status}  WHERE id = #{id}")
     void edit(BusinessDishEditDTO businessDishEditDTO);
+
     @Delete("DELETE from dishes  WHERE id = #{id}")
     void delete(int id);
-@Insert("INSERT INTO dishes (name, price, description, status) VALUES (#{name},#{price},#{description},#{status})")
-@Options(useGeneratedKeys=true, keyProperty="id", keyColumn="id")
-void add(BusinessDishAddDTO businessDishAddDTO);
+
+    @Insert("INSERT INTO dishes (name, price, description, status) VALUES (#{name},#{price},#{description},#{status})")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    void add(BusinessDishAddDTO businessDishAddDTO);
+
+    @Select("SELECT * FROM dishes WHERE id = #{id}")
+    Dish get(int id);
 }

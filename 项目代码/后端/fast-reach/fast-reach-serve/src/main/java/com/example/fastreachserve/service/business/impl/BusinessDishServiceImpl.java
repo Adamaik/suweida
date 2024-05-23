@@ -76,4 +76,9 @@ public class BusinessDishServiceImpl implements BusinessDishService {
         }
         return dishAddStruct;
     }
+
+    @Override
+    public Dish get(int dishId) {
+        return businessDishMapper.get(dishId);
+    }
 }

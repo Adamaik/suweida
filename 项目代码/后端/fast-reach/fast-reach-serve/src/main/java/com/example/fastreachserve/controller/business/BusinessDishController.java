@@ -4,6 +4,7 @@ import com.example.fastreachserve.service.business.BusinessDishService;
 import dto.business.BusinessDishAddDTO;
 import dto.business.BusinessDishEditDTO;
 import dto.business.BusinessDishPageDTO;
+import entity.Dish;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -63,5 +64,11 @@ public class BusinessDishController {
         return Result.error();
     }
 
+    @GetMapping("/order/dish")
+    public Result<Dish> getDishByOrderId(@RequestParam int id) {
+        Dish dish = businessDishService.get(id);
+
+        return Result.sucess(dish);
+    }
 
 }

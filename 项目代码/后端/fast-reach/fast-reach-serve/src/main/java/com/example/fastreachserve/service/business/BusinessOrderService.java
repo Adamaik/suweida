@@ -12,6 +12,7 @@ public interface BusinessOrderService {
     void editOrderStatus(int orderId, int status);
 
     List<BusinessOrderVO> getPageOrders(int page);
+    List<BusinessOrderVO> getOrdersByStatus(int status);
 
     BusinessOrderVO getPageOrderDetail(int orderId);
     Long getTotalOrdersCount();

@@ -47,5 +47,16 @@ public class BusinessOrderController {
         BusinessOrderVO orderDetail = businessOrderService.getPageOrderDetail(orderId);
         return Result.sucess(orderDetail);
     }
-}
 
+    @GetMapping("/page/detail/status")
+    public Result<PageResult> getPageOrderByStatus(@RequestParam("status") int status) {
+        List<BusinessOrderVO> orderStatusList = businessOrderService.getOrdersByStatus(status);
+        Long total = businessOrderService.getTotalOrdersCount();
+        PageResult pageStatusResult = new PageResult(total, orderStatusList);
+        return Result.sucess(pageStatusResult);
+    }
+
+
+
+
+}

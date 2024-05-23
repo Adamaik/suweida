@@ -1,5 +1,6 @@
 package com.example.fastreachserve.service.business.impl;
 
+import cn.hutool.json.ObjectMapper;
 import com.example.fastreachserve.mapper.business.BusinessOrderMapper;
 import com.example.fastreachserve.service.business.BusinessOrderService;
 import dto.business.BusinessOrderDTO;
@@ -42,6 +43,10 @@ public class BusinessOrderServiceImpl implements BusinessOrderService {
         return convertToVOList(orderDTOs);
     }
 
+    public List<BusinessOrderVO> getOrdersByStatus(int status) {
+        return businessOrderMapper.getOrdersByStatus(status);
+    }
+
     public Long getTotalOrdersCount() {
         return businessOrderMapper.getTotalOrdersCount();
     }
@@ -55,6 +60,7 @@ public class BusinessOrderServiceImpl implements BusinessOrderService {
 
     // 转换DTO为VO
     private BusinessOrderVO convertToVO(BusinessOrderDTO orderDTO) {
+
         if (orderDTO == null) {
             return null;
         }
@@ -64,6 +70,8 @@ public class BusinessOrderServiceImpl implements BusinessOrderService {
         orderVO.setTotalPrice(orderDTO.getTotalPrice());
         orderVO.setStatus(orderDTO.getStatus());
         orderVO.setAddress(orderDTO.getAddress());
+        orderVO.setOrderDate(orderDTO.getOrderDate());
+        orderVO.setOrderedDishes(orderDTO.getOrderedDishes());
         log.info(String.valueOf(orderVO));
         return orderVO;
 

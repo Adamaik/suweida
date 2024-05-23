@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e26f15a3-284e-457a-9de0-f2310d52972c" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/../前端/fast-reach/src/components/business/BusinessDishManage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../前端/fast-reach/src/components/business/BusinessDishManage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../前端/fast-reach/src/components/business/BusinessEmployeeManage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../前端/fast-reach/src/components/business/BusinessEmployeeManage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../前端/fast-reach/src/components/customer/CustomerOrder.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../前端/fast-reach/src/components/customer/CustomerOrder.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../前端/fast-reach/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../前端/fast-reach/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../前端/fast-reach/src/views/customer/CustomerLoginView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../前端/fast-reach/src/views/customer/CustomerLoginView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../前端/fast-reach/src/views/customer/CustomerMainManageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../前端/fast-reach/src/views/customer/CustomerMainManageView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/后端.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="e26f15a3-284e-457a-9de0-f2310d52972c" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,8 +33,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/速味达1.1/项目代码/后端/fast-reach",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/SEintro/suweida/项目代码/后端/fast-reach",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "vue.rearranger.settings.migration": "true"
   }
@@ -75,6 +61,7 @@
       <workItem from="1715157046627" duration="230000" />
       <workItem from="1715157309568" duration="23000" />
       <workItem from="1715931858070" duration="188000" />
+      <workItem from="1716258740634" duration="28000" />
     </task>
     <servers />
   </component>
